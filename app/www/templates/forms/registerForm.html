@@ -1,0 +1,104 @@
+<form name="registerForm">
+    <div class="list card">
+        <!-- <div class="card"> -->
+        <!-- Name -->
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Name</span>
+            <input required type="text" ng-model="user.name" placeholder="Name">
+        </label>
+        <!-- Blood Group -->
+        <label class="item item-input item-select">
+            <div class="input-label">
+                Blood Group
+            </div>
+            <select ng-model="user.bloodgroup">
+                <option selected="" value="A+">A+ve</option>
+                <option value="A-">A-ve</option>
+                <option value="B+">B+ve</option>
+                <option value="B-">B-ve</option>
+                <option value="O+">O+ve</option>
+                <option value="O-">O-ve</option>
+                <option value="AB+">AB+ve</option>
+                <option value="AB-">AB-ve</option>
+            </select>
+        </label>
+        <!-- Branch -->
+        <label class="item item-input item-select">
+            <div class="input-label">
+                Branch
+            </div>
+            <select ng-model="user.branch">
+                <option value="NA">Not Applicable</option>
+                <option value="AE">Applied Electronics and Instrumentation</option>
+                <option value="AR">Architecture</option>
+                <option value="MBA">Business Administration</option>
+                <option value="CIV">Civil Engineering</option>
+                <option value="MCA">Computer Applications</option>
+                <option value="CSE">Computer science and Engineering</option>
+                <option value="EEE">Electrical Engineering</option>
+                <option value="EC">Electronics And Communication Engineering</option>
+                <option value="IE">Industrial Engineering</option>
+                <option selected="" value="ME">Mechanical Engineering</option>
+            </select>
+        </label>
+        <!-- DOB -->
+        <label class="item item-input item-floating-label">
+            <span class="">Date of Birth</span>
+            <input type="date" ng-model="user.dob" placeholder="Date of Birth">
+        </label>
+        <!-- Mobile -->
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Mobile (personal)</span>
+            <input required type="text" ng-model="user.phone" placeholder="Mobile (personal)">
+        </label>
+        <!-- Email -->
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Email</span>
+            <input required type="email" ng-model="user.email" placeholder="Email">
+        </label>
+        <!-- Password -->
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Password</span>
+            <input type="password" ng-model="user.pass" placeholder="Password">
+        </label>
+        <!-- Confirm Password -->
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Confirm Password</span>
+            <input type="password" ng-model="dummy.confPass" placeholder="Confirm Password">
+        </label>
+        <!-- Passwords don't match -->
+        <label id="passwordmatch" ng-show="user.pass!=dummy.confPass" class="item item-input item-floating-label">
+            Passwords don't match
+        </label>
+        <!-- Address -->
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Address</span>
+            <input type="text" ng-model="user.address" placeholder="Address">
+        </label>
+        <!-- Father -->
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Father's Name</span>
+            <input required type="text" ng-model="user.father" placeholder="Father's Name">
+        </label>
+        <!-- Mother -->
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Mother's Name</span>
+            <input type="text" ng-model="user.mother" placeholder="Mother's Name">
+        </label>
+        <!-- PhoneDad -->
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Mobile (Father)</span>
+            <input required type="text" ng-model="user.phonedad" placeholder="Mobile (Father)">
+        </label>
+        <!-- PhoneMom -->
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Mobile (Mother)</span>
+            <input type="text" ng-model="user.phonemom" placeholder="Mobile (Mother)">
+        </label>
+        <!-- Submit -->
+        <button ng-click="submit()" ng-disabled="registerForm.$invalid" class="item button button-block button-calm ink activated" data-ink-color="#9DEAFF" data-ink-opacity="1">
+            Submit
+        </button>
+        <!-- </div> -->
+    </div>
+</form>

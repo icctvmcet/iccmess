@@ -1,0 +1,1 @@
+create table mess(mid int primary key,start date,establishment decimal(5,2),cost_per_day decimal(5,2),no_of_days int,status int,message varchar(50)); 

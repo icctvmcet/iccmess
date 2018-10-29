@@ -1,0 +1,43 @@
+<ion-side-menus enable-menu-with-back-views="true">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-assertive-900" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="left">
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon-round" menu-toggle="left">
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="fabContent"></ion-nav-view>
+        <ion-nav-view name="menuContent" ng-class="{expanded: isExpanded}"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left">
+        <ion-header-bar class="dark-bg expanded">
+            <span class="avatar" style="background: url('img/icon.png'); background-size: cover; background-color: black;"></span>
+            <h2>ICC Mess App</h2>
+        </ion-header-bar>
+        <ion-content class="stable-bg has-expanded-header">
+            <ion-list>
+                <ion-item nav-clear menu-close ui-sref="app.calender">
+                    <i class="icon ion-clipboard"></i> Attendence
+                </ion-item>
+                <ion-item nav-clear menu-close ui-sref="app.dashboard">
+                    <i class="icon ion-speedometer"></i> DashBoard
+                </ion-item>
+                <ion-item nav-clear menu-close ui-sref="app.profile">
+                    <i class="icon ion-person"></i> Profile
+                </ion-item>
+                <ion-item nav-clear menu-close ui-sref="app.admin" ng-show="profile.level>1">
+                    <i class="icon ion-ios-gear"></i> Admin Panel
+                </ion-item>
+                <ion-item nav-clear menu-close ui-sref="app.inmates" ng-show="profile.level>1">
+                    <i class="icon ion-android-people"></i> Inmate List
+                </ion-item>
+                <ion-item nav-clear menu-close ui-sref="app.feedback">
+                    <i class="icon ion-ios-paper"></i> FeedBack
+                </ion-item>
+                <ion-item nav-clear menu-close ng-click="logout()">
+                    <i class="icon ion-log-out"></i> Logout
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

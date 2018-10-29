@@ -1,0 +1,96 @@
+<ion-view view-title="Admin Panel">
+    <ion-content ng-class="{expanded:isExpanded}">
+        <div class="card stable-bg list padding">
+            <div style="float: left;">
+                <h4>Present Count</h4>
+            </div>
+            <div ng-show="!nodata">
+                <div style="float: right;">
+                    <span class="badge badge-assertive">{{tomorrowCount}}</span>
+                </div>
+                <a ng-repeat="day in countDate" class="">
+                    <span class="item">
+                    {{day.relative}} ({{day.String}}) : {{day.count}}
+                    </span>
+                </a>
+            </div>
+            <div ng-show="nodata">
+                <span class="item">{{message}}</span>
+            </div>
+            <div ng-show="nodata" class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" ng-click="getAllCost()" data-ink-color="#336699" data-ink-opacity="0.5">
+                    <i class="icon ion-clipboard"></i> Prepare Mess Bill
+                </a>
+            </div>
+        </div>
+        <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" ng-click="getPending()" data-ink-color="#336699" data-ink-opacity="0.5">
+                <i class="icon ion-android-people"></i> Inmates
+            </a>
+            <a ng-show="profile.level>2" class="tab-item" ng-click="getMDs()" data-ink-color="#336699" data-ink-opacity="0.5">
+                <i class="icon ion-person"></i> MDs
+            </a>
+            <a ng-show="profile.level>2" class="tab-item" ng-click="getDates()" data-ink-color="#336699" data-ink-opacity="0.5">
+                <i class="icon ion-calendar"></i> Dates
+            </a>
+        </div>
+        <div class="card stable-bg list padding" ng-show="showInmateCard">
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" ng-click="checkStatus=0" data-ink-color="#336699" data-ink-opacity="0.5">
+                    <i class="icon ion-clock"></i> Pending
+                </a>
+                <a class="tab-item" ng-click="checkStatus=1" data-ink-color="#336699" data-ink-opacity="0.5">
+                    <i class="icon ion-checkmark-round"></i> Accepted
+                </a>
+                <a class="tab-item" ng-click="checkStatus=2" data-ink-color="#336699" data-ink-opacity="0.5">
+                    <i class="icon ion-close-round"></i> Barred
+                </a>
+            </div>
+            <div>
+                <label class="item item-input item-icon-right">
+                    <input type="text" ng-model="searchText" placeholder="Filter">
+                    <i class="icon ion-android-search"></i>
+                </label>
+            </div>
+            <div id="personLis">
+                <a ng-click="changeStatus(person.id,person.name,checkStatus+1)" ng-repeat="person in personList | filter:searchText" class="">
+                    <span ng-show="person.status==checkStatus" class="item">
+                    <h3>{{person.name}} ({{person.branch}})</h3>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="card stable-bg list padding" ng-show="showMDList">
+            <div ng-show="profile.level>2" class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" ng-click="showAddMDPopover()" data-ink-color="#336699" data-ink-opacity="0.5">
+                    <i class="icon ion-plus-round"></i> Add
+                </a>
+                <a class="tab-item" ng-click="showDeleteMDPopover()" data-ink-color="#336699" data-ink-opacity="0.5">
+                    <i class="icon ion-close-round"></i> Remove
+                </a>
+            </div>
+            <div ng-repeat="md in MDList">
+                <span class="item">
+                    <div>
+                        {{md.name}}  ({{md.branch}})
+                    </div>
+                </span>
+            </div>
+        </div>
+        <div class="card stable-bg list padding" ng-show="showDateCard">
+            <div ng-show="profile.level>2" class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" ng-click="showAddDatePopover()" data-ink-color="#336699" data-ink-opacity="0.5">
+                    <i class="icon ion-plus-round"></i> Add Mess Leave
+                </a>
+                <a class="tab-item" ng-click="showDeleteDatePopover()" data-ink-color="#336699" data-ink-opacity="0.5">
+                    <i class="icon ion-close-round"></i> Remove Mess Leave
+                </a>
+            </div>
+            <div ng-repeat="date in dates">
+                <span ng-if="date.valid==1 || date.valid==0" class="item">
+                        {{date.dateString}}
+                </span>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
