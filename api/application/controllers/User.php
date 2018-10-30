@@ -6,6 +6,22 @@ require_once 'Attendance.php';
 class User extends CI_Controller {
 
 	public function __construct(){
+		// header('Access-Control-Allow-Credentials: true');
+        if (isset($_SERVER['HTTP_ORIGIN'])) {
+			header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+			header('Access-Control-Allow-Credentials: true');
+			header('Access-Control-Max-Age: 86400');    // cache for 1 day
+		}
+		// Access-Control headers are received during OPTIONS requests
+		if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+	
+			if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
+				header("Access-Control-Allow-Methods: GET, POST, OPTIONS");         
+	
+			if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
+				header("Access-Control-Allow-Headers:        {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+			header("Access-Control-Allow-Origin: http://localhost:8100");
+		}
 		parent::__construct();
 	}
 
@@ -17,7 +33,8 @@ class User extends CI_Controller {
 	public function register()
 	{
 		$postdata = file_get_contents("php://input");
-	    $request = json_decode($postdata, true);
+		$request = json_decode($postdata, true);
+			
 		$row=$request;
 		if(array_key_exists('pass', $row))
 			$row['pass']=md5($row['pass']);
@@ -31,7 +48,6 @@ class User extends CI_Controller {
 		$result['status']=0;
 		$result['message']=$_REQUEST;
 		$result['message']="Email Already Exists";
-
 		if($this->db->insert('users', $row))
 		{
 			$result['status']=1;
