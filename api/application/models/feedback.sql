@@ -1,0 +1,1 @@
+create table feedback(id int,feedback varchar(100));
