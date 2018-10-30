@@ -173,9 +173,9 @@ angular.module('Mess.controllers', ['Mess.factories', 'ngCordova'])
             });
         } else {
             var sendData = $scope.user;
+            console.log(sendData)
             user.register(sendData)
                 .success(function(data) {
-                    console.log(data);
                     if (data.status == 1) {
                         var alertPopup = $ionicPopup.alert({
                             title: 'Success',

@@ -1,0 +1,10 @@
+{
+  "name": "sample",
+  "integrations": {},
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
+}
