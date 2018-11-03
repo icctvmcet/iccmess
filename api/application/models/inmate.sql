@@ -1,1 +1,1 @@
-create table inmate(id varchar(5) primary key,name varchar(30),branch varchar(30),amount decimal(7,2),bill decimal(7,2),status int,mid varchar(10));
+create table inmate(id varchar(5) primary key,amount decimal(7,2) default 0.0,bill decimal(7,2) default 0.0,status int default 0,mid varchar(10));

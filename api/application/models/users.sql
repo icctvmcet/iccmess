@@ -1,1 +1,1 @@
-create table users(id int primary key,name varchar(30),email varchar(30),pass varchar(50),branch varchar(20),address varchar(40),dob date,father varchar(30),mother varchar(30),phone int,phonedad int,phonemom int,bloodgroup varchar(4));
+create table users(id int primary key auto_increment,name varchar(30),email varchar(30),pass varchar(50),branch varchar(20),address varchar(40),dob date,father varchar(30),mother varchar(30),phone varchar(14),phonedad varchar(14),phonemom varchar(14),bloodgroup varchar(4),level int default 0);

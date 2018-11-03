@@ -1,1 +1,1 @@
-create table attendance(id varchar(5),data date,mid varchar(10));
+create table attendance(id varchar(5),date date,mid varchar(10));

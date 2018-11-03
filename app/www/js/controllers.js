@@ -172,8 +172,7 @@ angular.module('Mess.controllers', ['Mess.factories', 'ngCordova'])
                 template: 'Passwords don\'t match'
             });
         } else {
-            var sendData = $scope.user;
-            console.log(sendData)
+            var sendData = $scope.user;    
             user.register(sendData)
                 .success(function(data) {
                     if (data.status == 1) {

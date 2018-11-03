@@ -147,7 +147,6 @@ angular.module('Mess.factories', [])
                 data: data,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
-                      'Access-Control-Allow-Origin' : '*'
                 },
                 withCredentials:true
             });

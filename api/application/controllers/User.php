@@ -34,8 +34,10 @@ class User extends CI_Controller {
 	{
 		$postdata = file_get_contents("php://input");
 		$request = json_decode($postdata, true);
-			
 		$row=$request;
+		if(array_key_exists('dob',$row))
+			$row['dob'] = date('Y/m/d',strtotime($row['dob']));
+		
 		if(array_key_exists('pass', $row))
 			$row['pass']=md5($row['pass']);
 		if(array_key_exists('name', $row))

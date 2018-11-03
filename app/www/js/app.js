@@ -21,7 +21,7 @@ angular.module('Mess', ['ionic', 'Mess.controllers', 'Mess.factories'])
 
 .value('appConfig', {
     // serverUrl: 'http://localhost/working/mess/api/',
-    serverUrl: 'http://localhost:8080/',
+    serverUrl: 'http://192.168.1.102:8080/',
 })
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
